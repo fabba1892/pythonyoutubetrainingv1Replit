@@ -1,4 +1,4 @@
-import fundamentals
+import blackjack
 
 # def get_choices():
 #   player_choice = input("Eneter a choice (rock, paper, scissors): ")
@@ -6,7 +6,6 @@ import fundamentals
 #   computer_choice = random.choice(options)
 #   choices = {"player": player_choice, "computer": computer_choice}
 #   return choices
-
 
 # def check_win(player, computer):
 #   print(f"You chose {player}, and Computer chose {computer} ")
@@ -32,14 +31,12 @@ import fundamentals
 # result = check_win(choices["player"], choices["computer"])
 # print(result)
 
-
 #rock paper scissors game
 
-
 # age = 25
-  # print(f" you are {age} yedars old")
-    
-# b = 3 
+# print(f" you are {age} yedars old")
+
+# b = 3
 # if a == b:
 #   print("ok cool")
 # else:
