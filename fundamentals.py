@@ -95,7 +95,7 @@
 # for item in range(15):
 #   print(item)
 
-#Recursion
+#Recursion func can run itself
 
 # def factorial(n):
 #   if n == 1: return 1
@@ -125,8 +125,9 @@
 
 # list compressions
 
-numbers = [1, 2, 3, 4, 5]
+# numbers = [1, 2, 3, 4, 5]
+# numbers_power_2 = [n**2 for n in numbers]
+# print(numbers_power_2)
 
-numbers_power_2 = [n**2 for n in numbers]
+#polymorphsm
 
-print(numbers_power_2)
