@@ -94,3 +94,39 @@
 
 # for item in range(15):
 #   print(item)
+
+#Recursion
+
+# def factorial(n):
+#   if n == 1: return 1
+#   return n * factorial(n-1)
+
+# print(factorial(3))
+# print(factorial(4))
+# print(factorial(5))
+
+#Decorators
+
+# def logtime(func):
+#   def wrapper():
+#     print("before")
+#     val = func()
+#     print("after")
+#     return val
+#   return wrapper
+
+# @logtime
+# def hello():
+#   print("hello")
+
+# hello()
+
+#pip  
+
+# list compressions
+
+numbers = [1, 2, 3, 4, 5]
+
+numbers_power_2 = [n**2 for n in numbers]
+
+print(numbers_power_2)
