@@ -10,10 +10,33 @@ for suit in suits:
 def shuffle():
   random.shuffle(cards)
 
-def deal():
-  card = cards.pop()
-  return card
+def deal(number):
+  cards_dealt = []
+  for x in range(number):
+    card = cards.pop()
+    cards_dealt.append(card)
+  return cards_dealt
+
 
 shuffle()
-card = deal(2)
-print(cards)
+
+
+
+
+
+
+# cards_dealt = deal(2)
+# card = cards_dealt[0]
+# rank = card[1]
+
+# if rank == "A":
+#   value = 11
+# elif rank == "J" or rank =="Q" or rank =="K":
+#   value = 10
+# else:
+#   value = rank 
+# print(rank, value)
+
+# rank_dict ={"rank": rank, "value": value}
+
+# print(rank_dict["rank"], rank_dict["value"])
