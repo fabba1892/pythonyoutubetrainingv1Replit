@@ -71,21 +71,80 @@ class Hand:
   def is_blackjack(self):
     return self.get_value() == 21
 
-  def display(self):
+  def display(self, show_all_dealer_cards=False):
     print(f'''{"Dealer's" if self.dealer else "Your"} hand:''')
-    for card in self.cards:
-      print(card)
+    for index, card in enumerate(self.cards):
+      if index == 0 and self.dealer and not show_all_dealer_cards and not self.is_blackjack():
+        print("hidden")
+      else:
+        print(card)
 
     if not self.dealer:
       print("Value:", self.get_value())
       
 
-deck = Deck()
-deck.shuffle()
+class Game:
+  def play(self):
+    game_number = 0
+    games_to_play = 0
 
-hand = Hand()
-hand.add_card(deck.deal(2))
-hand.display()
+    while games_to_play <= 0:
+      try:
+        games_to_play = int(input("How many games do you want to play? "))
+      except:
+        print("you must enter a number")
+
+    while game_number < games_to_play:
+      game_number += 1
+
+      deck = Deck()
+      deck.shuffle()
+
+      player_hand = Hand()
+      dealer_hand = Hand(dealer=True)
+
+      for i in range(2):
+        player_hand.add_card(deck.deal(1))
+        dealer_hand.add_card(deck.deal(1))
+
+      print()
+      print("*" * 30)
+      print(f"Game {game_number} of {games_to_play}")
+      print("*" * 30)
+      player_hand.display()
+      dealer_hand.display()
+      
+  def check_winner(self, player_hand, dealer_hand, game_over=False):
+    if not game_over:
+      if player_hand.get_value() > 21:
+        print("You busted. Dealer wins! 😒")
+        return True
+      elif dealer_hand.get_value() > 21:
+        print("Dealer busted, you win! 😂")
+        return True
+      elif dealer_hand.isblackjack() and player_hand.isblackjack():
+        print("Both players have BlackJack! Tie ! 😒")
+        return True
+      elif player_hand.isblackjack():
+        print("You have BlackJack ! you win 👌")
+        return True
+      elif dealer_hand.isblackjack():
+        print("Dealer has blackjack. Dealer wins 😒")
+        return True
+    return False
+
+
+ 
+g = Game()
+g.play()
+
+  
+# deck = Deck()
+# deck.shuffle()
+
+# hand = Hand()
+# hand.add_card(deck.deal(2))
+# hand.display()
 
 # hand.get_value()
 
