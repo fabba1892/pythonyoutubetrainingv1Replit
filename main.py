@@ -1,4 +1,4 @@
-import blackjack
+import intermediate
 
 # def get_choices():
 #   player_choice = input("Eneter a choice (rock, paper, scissors): ")
