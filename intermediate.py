@@ -2,11 +2,10 @@
 
 # # from collections import defaultdict
 # # d= defaultdict(float)
-# # d['a'], = 1 
-# # d['b'] =2 
+# # d['a'], = 1
+# # d['b'] =2
 # # print(d['c'])
 # # error
-
 
 # # from collections import deque
 # d = deque()
@@ -48,3 +47,30 @@
 # //////////////////////////////////////////////////////////
 
 # lambda
+
+# //////////////////////////////////////////////////////////
+
+# exceptions
+
+# f = open('sometextfile.txt')
+# x = -5
+# assert (x==0), 'x is not positive'
+# try:
+#   a = 5/0
+#   b =a+ '10'
+# except ZeroDivisionError as e:
+#   print(e)
+# ////////////////////////////////////////////////////////
+
+# logging
+
+# import logging
+# # logging.basicConfig(level=logging.DEBUG, format='%(asctime%' - &name& - &&)
+
+# # logging.debug('this is a debug message')
+# # logging.info('this is a info message')
+# # logging.warning('this is a warning message')
+# # logging.error('this is a error message')
+# # logging.critical('this is a critical message')
+
+# logger = logging.getLogger((__name__))
