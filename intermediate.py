@@ -74,3 +74,22 @@
 # # logging.critical('this is a critical message')
 
 # logger = logging.getLogger((__name__))
+
+# ////////////////////////////////////////////////////////////////////////////
+
+
+# Json
+# serialization and deserializarion
+# import json
+
+# person = {"name": "Fabba", "age": 30, "city": "New York", "hasChildren": False, "titles": ["engineer", "programmer"]}
+
+# # convert into JSON:
+# person_json = json.dumps(person)
+# # use different formatting style
+# person_json2 = json.dumps(person, indent=4, separators=("; ", "= "), sort_keys=True)
+
+# # the result is a JSON string:
+# print(person_json) 
+# print(person_json2) 
+
