@@ -150,3 +150,101 @@
 # print(arr)
 
 # ////////////////////////////////////////////////////////////////////////////////
+
+# function  and class decorators 
+
+# @my_decorator
+# def dosomething():
+#   pass
+
+# def start_end_decorator(func):
+    
+#     def wrapper():
+#         print('Start')
+#         func()
+#         print('End')
+#     return wrapper
+
+# @start_end_decorator
+# def print_name():
+#     print('Alex')
+    
+# # print_name()
+
+# # print()
+
+# # Now wrap the function by passing it as argument to the decorator function
+# # and asign it to itself -> Our function has extended behaviour!
+# # print_name = start_end_decorator(print_name)
+# print_name()
+
+# import functools
+
+# class CountCalls:
+#     # the init needs to have the func as argument and stores it
+#     def __init__(self, func):
+#         functools.update_wrapper(self, func)
+#         self.func = func
+#         self.num_calls = 0
+    
+#     # extend functionality, execute function, and return the result
+#     def __call__(self, *args, **kwargs):
+#         self.num_calls += 1
+#         print(f"Call {self.num_calls} of {self.func.__name__!r}")
+#         return self.func(*args, **kwargs)
+
+# @CountCalls
+# def say_hello(num):
+#     print("Hello!")
+    
+# say_hello(5)
+# say_hello(5)
+# ////////////////////////////////////////////////////////////////////////
+
+# generators
+
+# def countdown(num):
+#     print('Starting')
+#     while num > 0:
+#         yield num
+#         num -= 1
+
+# # this will not print 'Starting'
+# cd = countdown(3)
+
+# # this will print 'Starting' and the first value
+# print(next(cd))
+
+# # will print the next values
+# print(next(cd))
+# print(next(cd))
+
+# # this will raise a StopIteration
+# print(next(cd))
+
+# without a generator, the complete sequence has to be stored here in a list
+
+# without a generator, the complete sequence has to be stored here in a list
+# def firstn(n):
+#     num, nums = 0, []
+#     while num < n:
+#         nums.append(num)
+#         num += 1
+#     return nums
+
+# sum_of_first_n = sum(firstn(1000000))
+# print(sum_of_first_n)
+# import sys
+# print(sys.getsizeof(firstn(1000000)), "bytes")
+# def firstn(n):
+#     num, nums = 0, []
+#     while num < n:
+#         nums.append(num)
+#         num += 1
+#     return nums
+
+# sum_of_first_n = sum(firstn(1000000))
+# print(sum_of_first_n)
+# import sys
+# print(sys.getsizeof(firstn(1000000)), "bytes")
+
