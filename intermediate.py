@@ -248,3 +248,144 @@
 # import sys
 # print(sys.getsizeof(firstn(1000000)), "bytes")
 
+# /////////////////////////////////////
+
+# mulyithreading and multi processing
+
+
+# from multiprocessing import Process
+# import os
+
+
+# def square_numbers():
+#     for i in range(1000):
+#         result = i * i
+
+
+# if __name__ == "__main__":
+#     processes = []
+#     num_processes = os.cpu_count()
+
+#     # create processes and asign a function for each process
+#     for i in range(num_processes):
+#         process = Process(target=square_numbers)
+#         processes.append(process)
+
+#     # start all processes
+#     for process in processes:
+#         process.start()
+
+#     # wait for all processes to finish
+#     # block the main thread until these processes are finished
+#     for process in processes:
+#         process.join()
+
+#     print('end main')
+
+
+# from threading import Thread, Lock, current_thread
+# from queue import Queue
+
+# def worker(q, lock):
+#     while True:
+#         value = q.get()  # blocks until the item is available
+
+#         # do stuff...
+#         with lock:
+#             # prevent printing at the same time with this lock
+#             print(f"in {current_thread().name} got {value}")
+#         # ...
+
+#         # For each get(), a subsequent call to task_done() tells the queue
+#         # that the processing on this item is complete.
+#         # If all tasks are done, q.join() can unblock
+#         q.task_done()
+
+
+# if __name__ == '__main__':
+#     q = Queue()
+#     num_threads = 10
+#     lock = Lock()
+
+#     for i in range(num_threads):
+#         t = Thread(name=f"Thread{i+1}", target=worker, args=(q, lock))
+#         t.daemon = True  # dies when the main thread dies
+#         t.start()
+    
+#     # fill the queue with items
+#     for x in range(20):
+#         q.put(x)
+
+#     q.join()  # Blocks until all items in the queue have been gotten and processed.
+
+#     print('main done')
+
+# ////////////////////////////////////////////////////////////////////
+
+# function arguments 
+
+# def foo(a, b, c):
+#     print(a, b, c)
+    
+# # positional arguments
+# foo(1, 2, 3)
+
+# # keyword arguments
+# foo(a=1, b=2, c=3)
+# foo(c=3, b=2, a=1) # Note that the order is not important here
+
+# # mix of both
+# foo(1, b=2, c=3)
+
+# # This is not allowed:
+# # foo(1, b=2, 3) # positional argument after keyword argument
+# # foo(1, b=2, a=3) # multiple values for argument 'a'
+
+# arguments after variable-length arguments must be keyword arguments
+# def foo(*args, last):
+#     for arg in args:
+#         print(arg)
+#     print(last)
+
+# foo(8, 9, 10, last=50)
+
+# def foo1():
+#     x = number # global variable can only be accessed here
+#     print('number in function:', x)
+
+# number = 0
+# foo1()
+
+# # modifying the global variable
+# def foo2():
+#     global number # global variable can now be accessed and modified
+#     number = 3
+
+# print('number before foo2(): ', number)
+# foo2() # modifies the global variable
+# print('number after foo2(): ', number)
+
+# immutable objects -> no change
+# mutable objects -> change
+# Rebind a mutable reference -> no change
+# another example with rebinding references:
+# def foo(a_list):
+#     a_list += [4, 5] # this chanches the outer variable
+    
+# def bar(a_list):
+#     a_list = a_list + [4, 5] # this rebinds the reference to a new local variable
+
+# my_list = [1, 2, 3]
+# print('my_list before foo():', my_list)
+# foo(my_list)
+# print('my_list after foo():', my_list)
+
+# my_list = [1, 2, 3]
+# print('my_list before bar():', my_list)
+# bar(my_list)
+# print('my_list after bar():', my_list)
+
+# ////////////////////////////////////////////////////////////////
+
+# asterisk operator
+
